@@ -14,7 +14,7 @@ class Product {
     }
 
     public function get($id) {
-        $stmt = $this->prepare("SELECT * FROM products WHERE id=?");
+        $stmt = $this->conn->prepare("SELECT * FROM products WHERE id=?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
